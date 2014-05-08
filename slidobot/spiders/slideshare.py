@@ -1,4 +1,5 @@
 from urlparse import urljoin
+
 from scrapy.spider import Spider
 from scrapy.selector import Selector
 
@@ -8,10 +9,11 @@ from slidobot.items import SlideItem
 class SlideshareSpider(Spider):
     name = "slideshare"
     allowed_domains = ["slideshare.net"]
+    pages = 5
     start_urls = [
         "http://www.slideshare.net/"
         "popular/media/presentations/category/technology/all-time"
-        "?page_offset=" + str(i) for i in xrange(5)
+        "?page_offset=" + str(i) for i in xrange(pages)
     ]
 
     def parse(self, response):
@@ -21,7 +23,7 @@ class SlideshareSpider(Spider):
             category/technology/all-time?page_offset=2
         @returns items 0 16
         @returns requests 0 0
-        @scrapes author name url info
+        @scrapes title author url info
         """
 
         sel = Selector(response)
@@ -36,7 +38,7 @@ class SlideshareSpider(Spider):
             item['author'] = author.xpath('text()').extract()
 
             title = slide.xpath('a[contains(@class, "title")]')
-            item['name'] = title.xpath('normalize-space(text())').extract()
+            item['title'] = title.xpath('normalize-space(text())').extract()
 
             path = title.xpath('@href').extract()
             item['url'] = [urljoin(response.url, rel) for rel in path]
