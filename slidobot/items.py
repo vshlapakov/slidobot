@@ -8,9 +8,6 @@ class SlideItem(Item):
     info = Field()
 
 
-class FullSlideItem(Item):
-    title = Field()
-    author = Field()
-    url = Field()
+class FullSlideItem(SlideItem):
     views = Field()
     desc = Field()
