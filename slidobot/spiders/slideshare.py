@@ -21,7 +21,7 @@ class SlideshareSpider(Spider):
 
         @url http://www.slideshare.net/popular/media/presentations/
             category/technology/all-time?page_offset=2
-        @returns items 0 16
+        @returns items 0 18
         @returns requests 0 0
         @scrapes title author url info
         """

@@ -22,7 +22,7 @@ class SlideshareFullSpider(Spider):
         @url http://www.slideshare.net/popular/media/presentations/
             category/technology/all-time?page_offset=2
         @returns items 0 0
-        @returns requests 0 1
+        @returns requests 0 18
         """
 
         sel = Selector(response)
@@ -38,7 +38,7 @@ class SlideshareFullSpider(Spider):
 
     def parse_slidepage(self, response):
         """
-        @url www.slideshare.net/jbellis/state-of-cassandra-2011
+        @url http://www.slideshare.net/jbellis/state-of-cassandra-2011
         @returns items 0 1
         @returns requests 0 0
         @scrapes title author url views desc
