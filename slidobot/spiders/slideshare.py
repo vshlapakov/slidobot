@@ -9,7 +9,7 @@ from slidobot.items import SlideItem
 class SlideshareSpider(Spider):
     name = "slideshare"
     allowed_domains = ["slideshare.net"]
-    pages = 500
+    pages = 100
     start_urls = [
         "http://www.slideshare.net/"
         "popular/media/presentations/category/technology/all-time"

@@ -1,0 +1,2 @@
+git+https://github.com/scrapinghub/scrapinghub-entrypoint-scrapy.git@0.4#egg=scrapinghub-entrypoint-scrapy
+mock==1.0.1
